@@ -1,0 +1,23 @@
+name: Version Bump
+description: Create a commit on a release branch that updates the version number from the release branch in your source code
+runs:
+  using: docker
+  image: Dockerfile
+inputs:
+  github_token:
+    description: Token to push the version update to the repo
+    required: true
+  sed:
+    description: GNU sed pattern to apply
+    required: true
+  file:
+    description: File to apply the version bump to. Supports multiple files too, separated by a space.
+    required: true
+  author_name:
+    description: Name to use as the commit author
+    required: false
+    default: GitHub Actions
+  author_email:
+    description: Email to use as the commit author
+    required: false
+    default: actions@github.com
